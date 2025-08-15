@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Upload Barcode Image</h1>
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" accept="image/*" name="image" capture="camera">
+    <input type="submit" value="Upload">
+</form>
+{% if isbn %}
+    <p>ISBN: {{ isbn }}</p>
+{% endif %}
+</body>
+</html>
