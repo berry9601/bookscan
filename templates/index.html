@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <style>
+.upload_style {
+  background-color: #04AA6D;
+  color: white;
+  font-size: 15px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload_style:hover {
+  background-color: #059862;
+}
+</style>
+<title>Book ISBN Scanner</title>
+    </head>
 <body>
 <h1>Upload Barcode Image</h1>
 <form method="POST" enctype="multipart/form-data">
     <input type="file" accept="image/*" name="image" capture="camera">
-    <input type="submit" value="Upload">
+    <input class="upload_style" type="submit" value="Upload">
 </form>
-{% if isbn %}
-    <p>ISBN: {{ isbn }}</p>
-{% endif %}
+{% with messages = get_flashed_messages() %}
+  {% for m in messages %}
+    <p>{{ m }}</p>
+  {% endfor %}
+{% endwith %}
 </body>
 </html>
